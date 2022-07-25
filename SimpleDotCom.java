@@ -6,7 +6,7 @@ public class SimpleDotCom
     public void setLocationCells (int [] locs)
     {
         locationCells = locs;
-    } // out of method
+    } // OUT OF METHOD
 
     public String checkYourself (String stringGuess)
     {
@@ -18,17 +18,17 @@ public class SimpleDotCom
             if (guess == cell)
             {
                 result = "Попал";
-                numOfHits++;
+                numOfHits ++ ;
                 break;
-            } // out of if
-        } // out of loop
+            } // OUT OF IF
+        } // OUT OF LOOP
 
         if (numOfHits == locationCells.length)
         {
             result = "Потопил";
-        } // out of if
+        } // OUT OF IF
 
         System.out.println(result);
         return result;
-    } // out of method
-} // out of class
+    } // OUT OF METHOD
+} // OUT OF CLASS
