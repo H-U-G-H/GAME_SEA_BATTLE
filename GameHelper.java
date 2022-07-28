@@ -44,38 +44,45 @@ public class GameHelper
 
         comCount ++;
         int incr = 1;
-        if ((comCount % 2) == 1) incr = gridLength;
+        if ((comCount % 2) == 1)
+        {
+            incr = gridLength;
+        }
 
         while (!success & attempts++ < 200)
         {
             location = (int) (Math.random() * gridSize);
-            // System.out.print ("пробуем " + location);
+            System.out.print ("пробуем " + location);
             int x = 0;
             success = true;
 
-            while (success & x < comSize)
+            while (success && x < comSize)
             {
-                if (grid [location] == 0)
+                if (grid[location] == 0)
                 {
-                    coords [x++] = location;
+                    coords[x++] = location;
                     location += incr;
-                    if (location >= gridSize) success = false;
+                    if (location >= gridSize)
+                    {
+                        success = false;
+                    }
                     if (x > 0 && (location % gridLength == 0))
                     {
                         success = false;
                     }
-                    else
-                    {
-                        // System.out.print("используется " + location);
-                        success = false;
-                    } // OUT OF INNER IF/ELSE
-                } // OUT OF OUTER IF
+                }
+                else
+                {
+                    System.out.print("используется " + location);
+                    success = false;
+                } // OUT OF IF/ELSE
             } // OUT OF INNER LOOP
         } // OUT OF OUTER LOOP
+
         int x = 0;
         int row = 0;
         int column = 0;
-        // System.out.println("\n");
+        System.out.println("\n");
 
         while (x < comSize)
         {
@@ -86,9 +93,10 @@ public class GameHelper
 
             alphaCells.add(temp.concat(Integer.toString(row)));
             x++;
-            // System.out.print (" coord " + x + " = " + alphaCells.get(x-1));
+            System.out.print (" coord " + x + " = " + alphaCells.get(x-1));
         } // OUT OF LOOP
-        //System.out.println("\n");
+
+        System.out.println("\n");
         return alphaCells;
     } // OUT OF METHOD
 } // OUT OF CLASS
