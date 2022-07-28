@@ -40,5 +40,46 @@ public class DotComBust
         finishGame();
     } // OUT OF METHOD
 
-    //TODO: ДОПИСАТЬ НЕДОСТАЮЩУЮ ЧАСТЬ КОДА...
+    private void checkUserGuess(String userGuess)
+    {
+        numOfGuesses ++;
+        String result = "Мимо";
+
+        for (DotCom dotComToTest : dotComList)
+        {
+            result = dotComToTest.checkYourself(userGuess);
+            if (result.equals("Попал"))
+            {
+                break;
+            }
+            if (result.equals("Потопил"))
+            {
+                dotComList.remove(dotComToTest);
+                break;
+            } // OUT OF IF
+        } // OUT OF LOOP
+        System.out.println(result);
+    } // OUT OF METHOD
+
+    private void finishGame()
+    {
+        System.out.println("Все сайты ушли ко дну! Ваши акции теперь ничего не стоят.");
+        if (numOfGuesses <= 18)
+        {
+            System.out.println("Это заняло у Вас всего " + numOfGuesses + " попыток.");
+            System.out.println("Вы успели выбраться до того, как Ваши вложения утонули.");
+        }
+        else
+        {
+            System.out.println("Это заняло у Вас довольно много времени. " + numOfGuesses + " попыток.");
+            System.out.println("Рыбы водят хороводы вокруг Ваших вложений.");
+        } // OUT OF IF/ELSE
+    } // OUT OF METHOD
+
+    public static void main(String[] args)
+    {
+        DotComBust game = new DotComBust();
+        game.setUpGame();
+        game.startPlaying();
+    }
 }
