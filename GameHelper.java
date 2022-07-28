@@ -52,7 +52,10 @@ public class GameHelper
         while (!success & attempts++ < 200)
         {
             location = (int) (Math.random() * gridSize);
-            System.out.print ("пробуем " + location);
+
+            // тестовая строка
+            // System.out.print (" пробуем " + location);
+
             int x = 0;
             success = true;
 
@@ -73,7 +76,9 @@ public class GameHelper
                 }
                 else
                 {
-                    System.out.print("используется " + location);
+                    // тестовая строка:
+                    // System.out.print(" используется " + location);
+
                     success = false;
                 } // OUT OF IF/ELSE
             } // OUT OF INNER LOOP
@@ -82,7 +87,7 @@ public class GameHelper
         int x = 0;
         int row = 0;
         int column = 0;
-        System.out.println("\n");
+        System.out.println();
 
         while (x < comSize)
         {
@@ -93,9 +98,10 @@ public class GameHelper
 
             alphaCells.add(temp.concat(Integer.toString(row)));
             x++;
-            System.out.print (" coord " + x + " = " + alphaCells.get(x-1));
-        } // OUT OF LOOP
 
+            // тестовая строка:
+            System.out.print (" coord = " + alphaCells.get(x-1));
+        } // OUT OF LOOP
         System.out.println("\n");
         return alphaCells;
     } // OUT OF METHOD
